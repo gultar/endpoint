@@ -407,16 +407,16 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
       }
 
 
-      function runIching(args, cmd, configHex=''){
+      function runIching(args, cmd, configHex=false){
+
+
         if(args[0]){
           if(args[0] == '-c' || args[0] == 'chart'){
             output('<img src="./images/trigramchart-clear.gif" alt="chart">');
           }else{
             var myHex = new Hexagram();
-            if(configHex){
-              fetchHexFromFireBase(args[0], configHex);
-            }
-            fetchHexFromFireBase(args[0]);
+
+            fetchHexFromFireBase(args[0], configHex);
             myHex.setTextAndTitle();
             //blockchain.createTransaction(new Transaction('blockchain', '192.168.1.69', 0, myHex));
             drawIchingLines(myHex);
@@ -426,7 +426,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
         }
         var myHex = new Hexagram();
         myHex.castSixLines();
-        fetchHexFromFireBase(myHex.getHexagramNumber());
+        fetchHexFromFireBase(myHex.getHexagramNumber(), configHex);
         myHex.setTextAndTitle();
         drawIchingLines(myHex);
       }
