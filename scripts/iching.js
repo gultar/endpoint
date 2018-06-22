@@ -168,15 +168,18 @@ class Hexagram{
 
 
 //Configures the firebase DB and fetches the corresponding hexagram text
-function fetchHexFromFireBase(hexNumber){
+function fetchHexFromFireBase(hexNumber, config=''){
     var appName = ('app-'+hexNumber).toString();
-    var config = '54737be9255054376f9fb731b344f245e917ec5ea8a72d9f63d5671378dd915bdc462cd709515cbe'+
-'a6da84d32eb9d8e611353f377bdf0e16b1d2ec0fa0e5aa684c419d66a836a99851e2649c578afb66'+
-'aad7fef9bcea500ca063884448a575ad9bafcad00bcb93ec5ee152af6669352605bca8b216207aff'+
-'22fed3432757b96dc0621e6063e7d10ea365ff0e28b00da5ffe5e60163586967e786efe2134bc5c5'+
-'c8a58b136950875eff84f1422dfb31f929b7c876789924792ddcc9bd4bc9acbbb6bc11a09a0c1e05'+
-'5a9a7a8e03c22e77ee5e5556fb2a150879882758f86e6a050e443a073730d99508ced3c9f98fd330'+
-'de210477be7e6e4f24a7514aa4'
+
+    if(!config){
+      config = '54737be9255054376f9fb731b344f245e917ec5ea8a72d9f63d5671378dd915bdc462cd709515cbe'+
+      'a6da84d32eb9d8e611353f377bdf0e16b1d2ec0fa0e5aa684c419d66a836a99851e2649c578afb66'+
+      'aad7fef9bcea500ca063884448a575ad9bafcad00bcb93ec5ee152af6669352605bca8b216207aff'+
+      '22fed3432757b96dc0621e6063e7d10ea365ff0e28b00da5ffe5e60163586967e786efe2134bc5c5'+
+      'c8a58b136950875eff84f1422dfb31f929b7c876789924792ddcc9bd4bc9acbbb6bc11a09a0c1e05'+
+      '5a9a7a8e03c22e77ee5e5556fb2a150879882758f86e6a050e443a073730d99508ced3c9f98fd330'+
+      'de210477be7e6e4f24a7514aa4'
+    }
     /*
       Had to remode google api key
     	Check terminal_app for it
