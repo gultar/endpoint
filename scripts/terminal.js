@@ -681,7 +681,7 @@ setTimeout(function(){
 
   issueClientToken(nodeAddress);
 
-    socket  = io(nodeAddress);
+    socket  = io(nodeAddress, {secure: true});
 
     socket.emit('registerEndpoint', endpointToken)
 
